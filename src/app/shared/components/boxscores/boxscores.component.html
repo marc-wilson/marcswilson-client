@@ -1,0 +1,23 @@
+
+<section *ngIf="boxscores">
+  <mat-card *ngFor="let boxscore of boxscores.games">
+    <div class="boxscore">
+      <div class="score">
+        <div>
+          {{boxscore.away_name_abbrev}}
+        </div>
+        <div>
+          {{boxscore.linescore.r.away}}
+        </div>
+      </div>
+      <div class="score">
+        <div>
+          {{boxscore.home_name_abbrev}}
+        </div>
+        <div>
+          {{boxscore.linescore.r.home}}
+        </div>
+      </div>
+    </div>
+  </mat-card>
+</section>

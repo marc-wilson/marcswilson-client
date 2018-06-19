@@ -2,11 +2,13 @@
   display: grid;
   grid-template-areas: "header"
                        "main"
-                        "footer";
-  grid-template-rows: auto 1fr auto;
+                       "footer";
+  grid-template-rows: 25% 1fr auto;
   height: 100%;
   header {
     grid-area: header;
+    background: url('../../../images/jumbotron-seats.jpg');
+    background-size: cover;
   }
   main {
     grid-area: main;

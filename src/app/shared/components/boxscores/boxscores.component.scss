@@ -1,0 +1,13 @@
+section {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 15%);
+  grid-gap: 15px;
+  .boxscore {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    .score {
+      display: grid;
+      grid-template-columns: 1fr auto;
+    }
+  }
+}
