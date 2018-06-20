@@ -1,13 +1,59 @@
 section {
   display: grid;
   grid-template-columns: repeat(auto-fill, 15%);
+  grid-template-rows: 1fr;
   grid-gap: 15px;
-  .boxscore {
+  .score-card {
     display: grid;
-    grid-template-rows: 1fr 1fr;
-    .score {
+    grid-template-rows: auto 1fr;
+    padding: 10px 25px;
+    .score-card-header {
+
+    }
+    .score-card-body {
       display: grid;
-      grid-template-columns: 1fr auto;
+      grid-template-columns: 1fr auto auto;
+      .boxscore {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        .score {
+          display: grid;
+          grid-template-columns: 1fr auto;
+        }
+      }
+      .divider {
+        background: lightgray;
+        height: 100%;
+        width: 1px;
+        margin: 0 5px;
+      }
+      .game-info {
+        display: grid;
+        grid-template-rows: 1fr auto;
+        padding-left: 10px;
+        .bases {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .bases-wrapper {
+            display: grid;
+            grid-template-columns: 10px 10px;
+            grid-gap: 5px;
+            transform: rotate(45deg);
+            .base {
+              height: 10px;
+              width: 10px;
+              border: .5px solid gray;
+              &.on-base {
+                background-color: red;
+              }
+            }
+          }
+        }
+        .outs {
+
+        }
+      }
     }
   }
 }

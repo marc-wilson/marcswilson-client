@@ -1,21 +1,47 @@
-
-<section *ngIf="boxscores">
-  <mat-card *ngFor="let boxscore of boxscores.games">
-    <div class="boxscore">
-      <div class="score">
-        <div>
-          {{boxscore.away_name_abbrev}}
+<section *ngIf="boxscores" id="boxscores">
+  <mat-card *ngFor="let boxscore of boxscores.games" class="score-card">
+    <div class="score-card-header">
+      <div class="mat-caption" *ngIf="boxscore.status.status === 'In Progress'">
+        <strong>{{boxscore.status.inning_state}} {{boxscore.status.inning}}</strong>
+      </div>
+      <div class="mat-caption" *ngIf="boxscore.status.status === 'Final' || boxscore.status.status === 'Game Over'">
+        <strong>Final</strong>
+      </div>
+    </div>
+    <div class="score-card-body mat-body-1">
+      <div class="boxscore">
+        <div class="score">
+          <div>
+            {{boxscore.away_name_abbrev}}
+          </div>
+          <div *ngIf="boxscore.status.status !== 'Preview'">
+            {{boxscore.linescore.r.away}}
+          </div>
+          <div *ngIf="boxscore.status.status == 'Preview'"></div>
         </div>
-        <div>
-          {{boxscore.linescore.r.away}}
+        <div class="score">
+          <div>
+            {{boxscore.home_name_abbrev}}
+          </div>
+          <div *ngIf="boxscore.status.status !== 'Preview'">
+            {{boxscore.linescore.r.home}}
+          </div>
+          <div *ngIf="boxscore.status.status == 'Preview'"></div>
         </div>
       </div>
-      <div class="score">
-        <div>
-          {{boxscore.home_name_abbrev}}
+      <div *ngIf="boxscore.status.status === 'In Progress'">
+        <div class="divider"></div>
+      </div>
+      <div class="game-info" *ngIf="boxscore.status.status === 'In Progress'">
+        <div class="bases">
+          <div class="bases-wrapper">
+            <div class="base" [class.on-base]="boxscore.runners_on_base && boxscore.runners_on_base.runner_on_1b"></div>
+            <div class="base" [class.on-base]="boxscore.runners_on_base && boxscore.runners_on_base.runner_on_2b"></div>
+            <div class="base" [class.on-base]="boxscore.runners_on_base && boxscore.runners_on_base.runner_on_3b"></div>
+          </div>
         </div>
-        <div>
-          {{boxscore.linescore.r.home}}
+        <div class="outs mat-caption">
+          {{boxscore.status.o}} Out<span *ngIf="boxscore.status.o !== '1'">s</span>
         </div>
       </div>
     </div>
