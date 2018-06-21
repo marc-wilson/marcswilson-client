@@ -27,6 +27,8 @@ export class Game {
   public linescore: LineScore;
   public status: Status;
   public runners_on_base: RunnersOnBase;
+  public time: string;
+  public time_zone: string;
   constructor(game?) {
     if (game) {
       this.away_name_abbrev = game.away_name_abbrev;
@@ -36,6 +38,8 @@ export class Game {
       this.linescore = new LineScore(game.linescore);
       this.status = new Status(game.status);
       this.runners_on_base = new RunnersOnBase(game.runners_on_base);
+      this.time = game.time;
+      this.time_zone = game.time_zone;
     }
   }
 }

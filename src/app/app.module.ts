@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HomeViewComponent } from './views/home-view/home-view.component';
 import { BoxscoresComponent } from './shared/components/boxscores/boxscores.component';
 import { HttpClientModule } from '@angular/common/http';
-import { MatCardModule, MatDividerModule } from '@angular/material';
+import { MatCardModule, MatDividerModule, MatIconModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,8 @@ import { MatCardModule, MatDividerModule } from '@angular/material';
     AppRoutingModule,
     HttpClientModule,
     MatCardModule,
-    MatDividerModule
+    MatDividerModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

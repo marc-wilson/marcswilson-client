@@ -11,6 +11,7 @@ import { styler, value, listen, pointer, decay } from 'popmotion';
 export class BoxscoresComponent implements OnInit {
   private _boxscoresService: BoxscoresService;
   private _elementRef: ElementRef;
+  private _shiftCounter = 0;
   public boxscores: Boxscores;
   constructor(_boxscoresService: BoxscoresService, _elementRef: ElementRef) {
     this._boxscoresService = _boxscoresService;
@@ -21,5 +22,23 @@ export class BoxscoresComponent implements OnInit {
   async ngOnInit() {
     this.boxscores = await this._boxscoresService.getCurrentBoxscores();
     console.log(this.boxscores);
+  }
+  shiftLeft(): void {
+    const boxscoresEl = this._elementRef.nativeElement.querySelector('#boxscores');
+    this._shiftCounter += 600;
+    boxscoresEl.scroll({
+      left: this._shiftCounter,
+      behavior: 'smooth'
+    });
+  }
+  shiftRight(): void {
+    if (this._shiftCounter > 0) {
+      const boxscoresEl = this._elementRef.nativeElement.querySelector( '#boxscores' );
+      this._shiftCounter -= 600;
+      boxscoresEl.scroll( {
+        left: this._shiftCounter,
+        behavior: 'smooth'
+      } );
+    }
   }
 }
