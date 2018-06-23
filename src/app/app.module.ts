@@ -8,13 +8,17 @@ import { BoxscoresComponent } from './shared/components/boxscores/boxscores.comp
 import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule, MatDividerModule, MatIconModule } from '@angular/material';
 import { TeamMapComponent } from './shared/components/team-map/team-map.component';
+import { ChadwickStatsComponent } from './shared/components/chadwick-stats/chadwick-stats.component';
+import { SingleNumberVizComponent } from './shared/components/visualizations/single-number-viz/single-number-viz.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeViewComponent,
     BoxscoresComponent,
-    TeamMapComponent
+    TeamMapComponent,
+    ChadwickStatsComponent,
+    SingleNumberVizComponent
   ],
   imports: [
     BrowserModule,

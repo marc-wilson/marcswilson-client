@@ -1,12 +1,13 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewEncapsulation } from '@angular/core';
 import { GeoService } from '../../services/geo.service';
 import * as d3 from 'd3';
-import * as topojson from 'topojson';
+import * as topojson from 'topojson/dist/topojson.js';
 
 @Component({
   selector: 'app-team-map',
   templateUrl: './team-map.component.html',
-  styleUrls: ['./team-map.component.scss']
+  styleUrls: ['./team-map.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class TeamMapComponent implements OnInit {
   private readonly _geoService: GeoService;
@@ -22,7 +23,6 @@ export class TeamMapComponent implements OnInit {
 
   async ngOnInit() {
     this.topo = await this._geoService.getUSTopoJson();
-
     const projection = d3.geoAlbersUsa().scale(1070).translate([ this._width / 2, this._height / 2 ]);
     const path = d3.geoPath().projection(projection);
     this._svg = d3.select('svg')
@@ -33,10 +33,11 @@ export class TeamMapComponent implements OnInit {
       .attr('class', 'background')
       .attr('width', this._width)
       .attr('height', this._height);
+
     const g = this._svg.append('g');
 
     g.append('g')
-      .attr('id', 'states')
+      .attr('class', 'states')
       .selectAll('path')
       .data(topojson.feature(this.topo, this.topo.objects.states).features)
       .enter().append('path')

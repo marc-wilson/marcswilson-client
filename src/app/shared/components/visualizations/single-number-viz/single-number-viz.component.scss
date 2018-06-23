@@ -1,0 +1,15 @@
+section {
+  mat-card {
+    text-align: center;
+    padding: 100px;
+    .value {
+      margin-bottom: 0;
+    }
+    .divider-container {
+      margin: auto;
+      mat-divider {
+        width: 80%;
+      }
+    }
+  }
+}
