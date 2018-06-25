@@ -10,6 +10,9 @@ import { MatCardModule, MatDividerModule, MatIconModule } from '@angular/materia
 import { TeamMapComponent } from './shared/components/team-map/team-map.component';
 import { ChadwickStatsComponent } from './shared/components/chadwick-stats/chadwick-stats.component';
 import { SingleNumberVizComponent } from './shared/components/visualizations/single-number-viz/single-number-viz.component';
+import { PieChartComponent } from './shared/components/visualizations/pie-chart/pie-chart.component';
+import { RegionBreakdownComponent } from './shared/components/visualizations/region-breakdown/region-breakdown.component';
+import { HittingBreakdownComponent } from './shared/components/visualizations/hitting-breakdown/hitting-breakdown.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { SingleNumberVizComponent } from './shared/components/visualizations/sin
     BoxscoresComponent,
     TeamMapComponent,
     ChadwickStatsComponent,
-    SingleNumberVizComponent
+    SingleNumberVizComponent,
+    PieChartComponent,
+    RegionBreakdownComponent,
+    HittingBreakdownComponent
   ],
   imports: [
     BrowserModule,

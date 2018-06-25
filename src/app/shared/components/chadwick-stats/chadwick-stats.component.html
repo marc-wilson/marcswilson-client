@@ -1,3 +1,8 @@
-<section>
-  <app-single-number-viz></app-single-number-viz>
+<section *ngIf="counts">
+  <app-single-number-viz [num]="counts.people" text="People"></app-single-number-viz>
+  <app-single-number-viz [num]="counts.teams" text="Teams"></app-single-number-viz>
+  <app-single-number-viz [num]="counts.ballparks" text="Ballparks"></app-single-number-viz>
+  <app-single-number-viz [num]="counts.attendance" text="Attendance"></app-single-number-viz>
+  <app-region-breakdown></app-region-breakdown>
+  <app-hitting-breakdown class="span-3"></app-hitting-breakdown>
 </section>

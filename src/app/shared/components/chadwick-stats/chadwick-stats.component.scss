@@ -1,5 +1,8 @@
 section {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-gap: 30px;
+  .span-3 {
+    grid-column: 2 / 5;
+  }
 }

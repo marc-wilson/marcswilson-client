@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import * as Highcharts from 'highcharts';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app';
+  constructor() {
+    Highcharts.setOptions({
+      colors: Highcharts.map(Highcharts.getOptions().colors, function (color) {
+        return {
+          radialGradient: {
+            cx: 0.5,
+            cy: 0.3,
+            r: 0.7
+          },
+          stops: [
+            [0, color],
+            [1, Highcharts.Color(color).brighten(-0.3).get('rgb')] // darken
+          ]
+        };
+      })
+    });
+  }
 }

@@ -1,5 +1,6 @@
 import { Component, ElementRef, Input, OnInit } from '@angular/core';
 import { tween, easing } from 'popmotion';
+import { ChadwickCounts } from '../../../models/chadwick-counts';
 
 @Component({
   selector: 'app-single-number-viz',
@@ -8,16 +9,15 @@ import { tween, easing } from 'popmotion';
 })
 export class SingleNumberVizComponent implements OnInit {
   @Input() num: number;
+  @Input() text: string;
   private readonly _elementRef: ElementRef;
   constructor(_elementRef: ElementRef) {
     this._elementRef = _elementRef;
-    this.num = 0;
   }
 
   ngOnInit() {
-    const valueElement: ElementRef = new ElementRef(this._elementRef.nativeElement.querySelector('.value'));
     const updateFunc = ( v ) => this.num = v;
-    tween( { to: 1000, duration: 1000, ease: easing.easeOut }).start( updateFunc );
+    tween( { to: this.num, duration: 1000, ease: easing.easeOut }).start( updateFunc );
   }
 
 }

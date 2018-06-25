@@ -25,6 +25,7 @@
     "@angular/router": "^6.0.3",
     "core-js": "^2.5.4",
     "d3": "^5.5.0",
+    "highcharts": "^6.1.0",
     "popmotion-pose": "^2.0.6",
     "rxjs": "^6.0.0",
     "topojson": "^3.0.2",
