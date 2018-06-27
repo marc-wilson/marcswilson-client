@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
+import { ChadwickService } from '../../../services/chadwick.service';
 
 @Component({
   selector: 'app-hitting-breakdown',
@@ -7,50 +8,54 @@ import * as Highcharts from 'highcharts';
   styleUrls: ['./hitting-breakdown.component.scss']
 })
 export class HittingBreakdownComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-    this.buildChart();
+  private _chadwickService: ChadwickService;
+  constructor(_chadwickService: ChadwickService) {
+    this._chadwickService = _chadwickService;
   }
-  buildChart(): void {
+
+  async ngOnInit() {
+    const data = await this._chadwickService.getTopHitters();
+    this.buildChart(data);
+  }
+  buildChart(data): void {
+    console.log(data);
+    const playerNames = data.map( d => d._id );
     Highcharts.chart('hittingBreakdown', {
       chart: {
         zoomType: 'xy'
       },
       title: {
-        text: 'Average Monthly Temperature and Rainfall in Tokyo'
+        text: 'Top Hitters in MLB History'
       },
       subtitle: {
-        text: 'Source: WorldClimate.com'
+        text: 'Source: Chadwick Bureau Baseball Databank'
       },
       xAxis: [{
-        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-          'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        categories: playerNames,
         crosshair: true
       }],
       yAxis: [{ // Primary yAxis
         labels: {
-          format: '{value}°C',
+          format: '{value}',
           style: {
             color: Highcharts.getOptions().colors[1]
           }
         },
         title: {
-          text: 'Temperature',
+          text: 'Batting Average',
           style: {
             color: Highcharts.getOptions().colors[1]
           }
         }
       }, { // Secondary yAxis
         title: {
-          text: 'Rainfall',
+          text: 'Homeruns',
           style: {
             color: Highcharts.getOptions().colors[0]
           }
         },
         labels: {
-          format: '{value} mm',
+          format: '{value}',
           style: {
             color: Highcharts.getOptions().colors[0]
           }
@@ -60,30 +65,21 @@ export class HittingBreakdownComponent implements OnInit {
       tooltip: {
         shared: true
       },
-      legend: {
-        layout: 'vertical',
-        align: 'left',
-        x: 120,
-        verticalAlign: 'top',
-        y: 100,
-        floating: true,
-        backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
-      },
       series: [{
-        name: 'Rainfall',
+        name: 'Homeruns',
         type: 'column',
         yAxis: 1,
-        data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4],
+        data: data.map( d => d.HR ),
         tooltip: {
-          valueSuffix: ' mm'
+          valueSuffix: ''
         }
 
       }, {
-        name: 'Temperature',
+        name: 'Batting Average',
         type: 'spline',
-        data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6],
+        data: data.map( d => d.BA),
         tooltip: {
-          valueSuffix: '°C'
+          valueSuffix: ''
         }
       }]
     });

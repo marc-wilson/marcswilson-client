@@ -19,4 +19,8 @@ export class ChadwickService {
     const data = await this._httpClient.get('http://localhost:3000/api/mlb/chadwick/players/region').toPromise();
     return data;
   }
+  async getTopHitters() {
+    const data = await this._httpClient.get('http://localhost:3000/api/mlb/chadwick/players/top-hitters').toPromise();
+    return data;
+  }
 }
