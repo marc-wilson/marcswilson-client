@@ -16,12 +16,10 @@ export class BoxscoresComponent implements OnInit {
   constructor(_boxscoresService: BoxscoresService, _elementRef: ElementRef) {
     this._boxscoresService = _boxscoresService;
     this._elementRef = _elementRef;
-    console.log(this._elementRef);
   }
 
   async ngOnInit() {
     this.boxscores = await this._boxscoresService.getCurrentBoxscores();
-    console.log(this.boxscores);
   }
   shiftLeft(): void {
     const boxscoresEl = this._elementRef.nativeElement.querySelector('#boxscores');

@@ -13,6 +13,8 @@ import { SingleNumberVizComponent } from './shared/components/visualizations/sin
 import { PieChartComponent } from './shared/components/visualizations/pie-chart/pie-chart.component';
 import { RegionBreakdownComponent } from './shared/components/visualizations/region-breakdown/region-breakdown.component';
 import { HittingBreakdownComponent } from './shared/components/visualizations/hitting-breakdown/hitting-breakdown.component';
+import { OldestFranchisesComponent } from './shared/components/visualizations/oldest-franchises/oldest-franchises.component';
+import { TopWorldSeriesWinnersComponent } from './shared/components/visualizations/top-world-series-winners/top-world-series-winners.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { HittingBreakdownComponent } from './shared/components/visualizations/hi
     SingleNumberVizComponent,
     PieChartComponent,
     RegionBreakdownComponent,
-    HittingBreakdownComponent
+    HittingBreakdownComponent,
+    OldestFranchisesComponent,
+    TopWorldSeriesWinnersComponent
   ],
   imports: [
     BrowserModule,

@@ -16,7 +16,6 @@ export class ChadwickStatsComponent implements OnInit {
 
   async ngOnInit() {
     this.counts = await this._chandwickService.getChadwickCounts();
-    console.log(this.counts);
   }
 
 }

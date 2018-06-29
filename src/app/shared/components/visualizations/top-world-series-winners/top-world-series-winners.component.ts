@@ -1,24 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import { ChadwickService } from '../../../services/chadwick.service';
-
 @Component({
-  selector: 'app-region-breakdown',
-  templateUrl: './region-breakdown.component.html',
-  styleUrls: ['./region-breakdown.component.scss']
+  selector: 'app-top-world-series-winners',
+  templateUrl: './top-world-series-winners.component.html',
+  styleUrls: ['./top-world-series-winners.component.scss']
 })
-export class RegionBreakdownComponent implements OnInit {
-  private readonly _chadwickService: ChadwickService;
+export class TopWorldSeriesWinnersComponent implements OnInit {
+  private _chadwickService: ChadwickService;
   constructor(_chadwickService: ChadwickService) {
     this._chadwickService = _chadwickService;
   }
 
   async ngOnInit() {
-    const data = await this._chadwickService.getPlayerRegions();
+    const data = await this._chadwickService.getTopWorldSeriesWinners();
     this.buildChart(data);
   }
-  buildChart(data): void {
-    Highcharts.chart('container', {
+  buildChart(data) {
+    console.log(data);
+    Highcharts.chart('worldSeriesWins', {
       chart: {
         plotBackgroundColor: null,
         plotBorderWidth: null,
@@ -26,10 +26,10 @@ export class RegionBreakdownComponent implements OnInit {
         type: 'pie'
       },
       title: {
-        text: 'Player Origins'
+        text: 'Top World Series Winners'
       },
       tooltip: {
-        pointFormat: '{series.name}: <b>{point.y}</b>'
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
       },
       plotOptions: {
         pie: {
@@ -46,8 +46,8 @@ export class RegionBreakdownComponent implements OnInit {
         }
       },
       series: [{
-        name: 'Players',
-        data: data.map( d => ( { name: d._id, y: d.count } ))
+        name: 'Share',
+        data: data.map( d => ({ name: d.name, y: d.count }))
       }]
     });
   }

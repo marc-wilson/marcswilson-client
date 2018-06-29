@@ -23,4 +23,12 @@ export class ChadwickService {
     const data = await this._httpClient.get('http://localhost:3000/api/mlb/chadwick/players/top-hitters').toPromise();
     return data;
   }
+  async getOldestFranchises() {
+    const data = await this._httpClient.get( 'http://localhost:3000/api/mlb/chadwick/franchise/oldest' ).toPromise();
+    return data;
+  }
+  async getTopWorldSeriesWinners() {
+    const data = await this._httpClient.get('http://localhost:3000/api/mlb/chadwick/worldseries/wins').toPromise();
+    return data;
+  }
 }

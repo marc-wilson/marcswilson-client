@@ -18,7 +18,6 @@ export class HittingBreakdownComponent implements OnInit {
     this.buildChart(data);
   }
   buildChart(data): void {
-    console.log(data);
     const playerNames = data.map( d => d.name );
     Highcharts.chart('hittingBreakdown', {
       chart: {
