@@ -18,7 +18,6 @@ export class OldestFranchisesComponent implements OnInit {
     this.buildChart(data);
   }
   buildChart(data): void {
-    console.log(data);
     const teamNames = data.map( d => d.name );
     Highcharts.chart('franchises', {
       chart: {

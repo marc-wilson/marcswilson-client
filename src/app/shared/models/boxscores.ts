@@ -8,10 +8,10 @@ export class Boxscores {
   sort(): Boxscores {
     this.games.sort( (g1, g2) => {
       if (g1.status.status > g2.status.status) {
-        return -1;
+        return 1;
       }
       if (g1.status.status < g2.status.status) {
-        return 1;
+        return -1;
       }
       return 0;
     } );

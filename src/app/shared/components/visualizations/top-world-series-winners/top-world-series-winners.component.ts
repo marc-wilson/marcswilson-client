@@ -17,7 +17,6 @@ export class TopWorldSeriesWinnersComponent implements OnInit {
     this.buildChart(data);
   }
   buildChart(data) {
-    console.log(data);
     Highcharts.chart('worldSeriesWins', {
       chart: {
         plotBackgroundColor: null,
