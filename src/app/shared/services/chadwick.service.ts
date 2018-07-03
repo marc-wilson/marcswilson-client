@@ -31,4 +31,8 @@ export class ChadwickService {
     const data = await this._httpClient.get('http://localhost:3000/api/mlb/chadwick/worldseries/wins').toPromise();
     return data;
   }
+  async getAttendanceTrend() {
+    const data = await this._httpClient.get('http://localhost:3000/api/mlb/chadwick/homegames/attendance').toPromise();
+    return data;
+  }
 }

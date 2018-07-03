@@ -15,6 +15,7 @@ import { RegionBreakdownComponent } from './shared/components/visualizations/reg
 import { HittingBreakdownComponent } from './shared/components/visualizations/hitting-breakdown/hitting-breakdown.component';
 import { OldestFranchisesComponent } from './shared/components/visualizations/oldest-franchises/oldest-franchises.component';
 import { TopWorldSeriesWinnersComponent } from './shared/components/visualizations/top-world-series-winners/top-world-series-winners.component';
+import { AttendanceTrendComponent } from './shared/components/visualizations/attendance-trend/attendance-trend.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { TopWorldSeriesWinnersComponent } from './shared/components/visualizatio
     RegionBreakdownComponent,
     HittingBreakdownComponent,
     OldestFranchisesComponent,
-    TopWorldSeriesWinnersComponent
+    TopWorldSeriesWinnersComponent,
+    AttendanceTrendComponent
   ],
   imports: [
     BrowserModule,
