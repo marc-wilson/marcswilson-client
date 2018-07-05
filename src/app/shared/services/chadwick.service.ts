@@ -35,4 +35,10 @@ export class ChadwickService {
     const data = await this._httpClient.get('http://localhost:3000/api/mlb/chadwick/homegames/attendance').toPromise();
     return data;
   }
+  async searchPlayers(term?: string) {
+    const urlPrefix = 'http://localhost:3000/api/mlb/chadwick/players/search';
+    const url = urlPrefix + (term ?  `/${term}` : '');
+    const data = await this._httpClient.get(url).toPromise();
+    return data;
+  }
 }

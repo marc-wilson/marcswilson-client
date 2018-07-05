@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ChadwickService } from '../../services/chadwick.service';
-import { ChadwickCounts } from '../../models/chadwick-counts';
+import { ChadwickService } from '../../shared/services/chadwick.service';
+import { ChadwickCounts } from '../../shared/models/chadwick-counts';
 
 @Component({
   selector: 'app-chadwick-stats',

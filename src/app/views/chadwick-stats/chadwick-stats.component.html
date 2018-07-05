@@ -1,4 +1,5 @@
 <section *ngIf="counts">
+  <app-boxscores class="span-4"></app-boxscores>
   <app-single-number-viz [num]="counts.people" text="People"></app-single-number-viz>
   <app-single-number-viz [num]="counts.teams" text="Teams"></app-single-number-viz>
   <app-single-number-viz [num]="counts.ballparks" text="Ballparks"></app-single-number-viz>
@@ -9,3 +10,4 @@
   <app-top-world-series-winners></app-top-world-series-winners>
   <app-attendance-trend class="span-4"></app-attendance-trend>
 </section>
+

@@ -6,16 +6,30 @@ import { AppComponent } from './app.component';
 import { HomeViewComponent } from './views/home-view/home-view.component';
 import { BoxscoresComponent } from './shared/components/boxscores/boxscores.component';
 import { HttpClientModule } from '@angular/common/http';
-import { MatCardModule, MatDividerModule, MatIconModule } from '@angular/material';
+import {
+  MatAutocompleteModule,
+  MatCardModule,
+  MatDividerModule,
+  MatExpansionModule,
+  MatIconModule, MatInputModule, MatSelectModule,
+  MatSidenavModule,
+  MatToolbarModule
+} from '@angular/material';
 import { TeamMapComponent } from './shared/components/team-map/team-map.component';
-import { ChadwickStatsComponent } from './shared/components/chadwick-stats/chadwick-stats.component';
+import { ChadwickStatsComponent } from './views/chadwick-stats/chadwick-stats.component';
 import { SingleNumberVizComponent } from './shared/components/visualizations/single-number-viz/single-number-viz.component';
 import { PieChartComponent } from './shared/components/visualizations/pie-chart/pie-chart.component';
 import { RegionBreakdownComponent } from './shared/components/visualizations/region-breakdown/region-breakdown.component';
 import { HittingBreakdownComponent } from './shared/components/visualizations/hitting-breakdown/hitting-breakdown.component';
 import { OldestFranchisesComponent } from './shared/components/visualizations/oldest-franchises/oldest-franchises.component';
-import { TopWorldSeriesWinnersComponent } from './shared/components/visualizations/top-world-series-winners/top-world-series-winners.component';
+import {
+  TopWorldSeriesWinnersComponent
+} from './shared/components/visualizations/top-world-series-winners/top-world-series-winners.component';
 import { AttendanceTrendComponent } from './shared/components/visualizations/attendance-trend/attendance-trend.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ChadwickComponent } from './views/chadwick/chadwick.component';
+import { ChadwickPlayerComparisonComponent } from './views/chadwick-player-comparison/chadwick-player-comparison.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,15 +44,25 @@ import { AttendanceTrendComponent } from './shared/components/visualizations/att
     HittingBreakdownComponent,
     OldestFranchisesComponent,
     TopWorldSeriesWinnersComponent,
-    AttendanceTrendComponent
+    AttendanceTrendComponent,
+    ChadwickComponent,
+    ChadwickPlayerComparisonComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
+    MatAutocompleteModule,
+    MatSelectModule,
+    FormsModule,
+    MatInputModule,
     HttpClientModule,
+    MatExpansionModule,
     MatCardModule,
     MatDividerModule,
-    MatIconModule
+    MatIconModule,
+    MatSidenavModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
