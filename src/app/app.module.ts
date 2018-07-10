@@ -30,6 +30,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChadwickComponent } from './views/chadwick/chadwick.component';
 import { ChadwickPlayerComparisonComponent } from './views/chadwick-player-comparison/chadwick-player-comparison.component';
 import { FormsModule } from '@angular/forms';
+import { HomerunComparisonComponent } from './shared/components/visualizations/homerun-comparison/homerun-comparison.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { FormsModule } from '@angular/forms';
     TopWorldSeriesWinnersComponent,
     AttendanceTrendComponent,
     ChadwickComponent,
-    ChadwickPlayerComparisonComponent
+    ChadwickPlayerComparisonComponent,
+    HomerunComparisonComponent
   ],
   imports: [
     BrowserModule,

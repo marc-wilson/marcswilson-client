@@ -3,7 +3,7 @@ section {
   grid-template-areas: "header"
                        "main";
   grid-template-rows: auto 1fr;
-
+  height: 100%;
   header {
     grid-area: header;
     display: grid;
