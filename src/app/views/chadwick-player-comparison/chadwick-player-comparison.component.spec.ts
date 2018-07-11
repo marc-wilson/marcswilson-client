@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ChadwickPlayerComparisonComponent } from './chadwick-player-comparison.component';
+import { FormsModule } from '@angular/forms';
+import { MatAutocompleteModule, MatInputModule } from '@angular/material';
+import { HomerunComparisonComponent } from '../../shared/components/visualizations/homerun-comparison/homerun-comparison.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('ChadwickPlayerComparisonComponent', () => {
   let component: ChadwickPlayerComparisonComponent;
@@ -8,7 +12,16 @@ describe('ChadwickPlayerComparisonComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ChadwickPlayerComparisonComponent ]
+      declarations: [
+        ChadwickPlayerComparisonComponent,
+        HomerunComparisonComponent
+      ],
+      imports: [
+        FormsModule,
+        HttpClientTestingModule,
+        MatAutocompleteModule,
+        MatInputModule
+      ]
     })
     .compileComponents();
   }));

@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TeamMapComponent } from './team-map.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('TeamMapComponent', () => {
   let component: TeamMapComponent;
@@ -8,7 +9,12 @@ describe('TeamMapComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TeamMapComponent ]
+      declarations: [
+        TeamMapComponent
+      ],
+      imports: [
+        HttpClientTestingModule
+      ]
     })
     .compileComponents();
   }));

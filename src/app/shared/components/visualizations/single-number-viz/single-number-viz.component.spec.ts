@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SingleNumberVizComponent } from './single-number-viz.component';
+import { MatCardModule } from '@angular/material';
 
 describe('SingleNumberVizComponent', () => {
   let component: SingleNumberVizComponent;
@@ -8,7 +9,12 @@ describe('SingleNumberVizComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SingleNumberVizComponent ]
+      declarations: [
+        SingleNumberVizComponent
+      ],
+      imports: [
+        MatCardModule
+      ]
     })
     .compileComponents();
   }));

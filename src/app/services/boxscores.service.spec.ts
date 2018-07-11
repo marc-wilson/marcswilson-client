@@ -1,11 +1,17 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { BoxscoresService } from './boxscores.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('BoxscoresService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [BoxscoresService]
+      providers: [
+        BoxscoresService
+      ],
+      imports: [
+        HttpClientTestingModule
+      ]
     });
   });
 

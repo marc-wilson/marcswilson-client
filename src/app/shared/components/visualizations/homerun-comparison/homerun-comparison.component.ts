@@ -29,17 +29,23 @@ export class HomerunComparisonComponent implements OnInit {
     Highcharts.chart('homerunComparison', {
 
       title: {
-        text: 'Solar Employment Growth by Sector, 2010-2016'
+        text: 'Homeruns by Season'
       },
 
       subtitle: {
-        text: 'Source: thesolarfoundation.com'
+        text: 'Chadwick Baseball Databank'
       },
 
       yAxis: {
         title: {
-          text: 'Number of Employees'
+          text: 'Homeruns'
         }
+      },
+      xAxis: {
+        title: {
+          text: 'Seasons'
+        },
+        tickInterval: 1
       },
       legend: {
         layout: 'vertical',
@@ -52,7 +58,7 @@ export class HomerunComparisonComponent implements OnInit {
           label: {
             connectorAllowed: false
           },
-          pointStart: 2010
+          pointStart: 0
         }
       },
 
@@ -66,22 +72,6 @@ export class HomerunComparisonComponent implements OnInit {
           data: this.player2.data.batting.map( b => b.HR )
         }
       ],
-
-      responsive: {
-        rules: [{
-          condition: {
-            maxWidth: 500
-          },
-          chartOptions: {
-            legend: {
-              layout: 'horizontal',
-              align: 'center',
-              verticalAlign: 'bottom'
-            }
-          }
-        }]
-      }
-
     });
   }
 

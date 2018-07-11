@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HittingBreakdownComponent } from './hitting-breakdown.component';
+import { MatCardModule } from '@angular/material';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('HittingBreakdownComponent', () => {
   let component: HittingBreakdownComponent;
@@ -8,7 +10,13 @@ describe('HittingBreakdownComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HittingBreakdownComponent ]
+      declarations: [
+        HittingBreakdownComponent
+      ],
+      imports: [
+        HttpClientTestingModule,
+        MatCardModule
+      ]
     })
     .compileComponents();
   }));

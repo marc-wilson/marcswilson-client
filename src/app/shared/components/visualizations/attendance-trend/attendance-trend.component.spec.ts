@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AttendanceTrendComponent } from './attendance-trend.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('AttendanceTrendComponent', () => {
   let component: AttendanceTrendComponent;
@@ -8,7 +9,12 @@ describe('AttendanceTrendComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AttendanceTrendComponent ]
+      declarations: [
+        AttendanceTrendComponent
+      ],
+      imports: [
+        HttpClientTestingModule
+      ]
     })
     .compileComponents();
   }));

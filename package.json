@@ -2,12 +2,13 @@
   "name": "marcswilson-client",
   "version": "0.0.0",
   "scripts": {
+    "build": "ng build --aot --prod",
+    "code-coverage": "ng test --code-coverage --watch",
+    "e2e": "ng e2e",
+    "lint": "ng lint",
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --aot --prod",
     "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e",
     "vsts-agent": "../../vsts-agent/run.sh"
   },
   "private": true,

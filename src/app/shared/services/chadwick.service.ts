@@ -15,8 +15,10 @@ export class ChadwickService {
       .toPromise();
     return new ChadwickCounts(counts);
   }
-  async getPlayerRegions() {
-    const data = await this._httpClient.get('http://localhost:3000/api/mlb/chadwick/players/region').toPromise();
+  async getPlayerRegions(): Promise<{ country: string, count: number}[]> {
+    const data = await this._httpClient.get<{ country: string, count: number}[]>(
+      'http://localhost:3000/api/mlb/chadwick/players/region'
+    ).toPromise();
     return data;
   }
   async getTopHitters() {

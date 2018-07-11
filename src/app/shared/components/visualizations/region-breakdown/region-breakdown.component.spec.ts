@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RegionBreakdownComponent } from './region-breakdown.component';
+import { MatCardModule } from '@angular/material';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('RegionBreakdownComponent', () => {
   let component: RegionBreakdownComponent;
@@ -8,7 +10,13 @@ describe('RegionBreakdownComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RegionBreakdownComponent ]
+      declarations: [
+        RegionBreakdownComponent
+      ],
+      imports: [
+        HttpClientTestingModule,
+        MatCardModule
+      ]
     })
     .compileComponents();
   }));
