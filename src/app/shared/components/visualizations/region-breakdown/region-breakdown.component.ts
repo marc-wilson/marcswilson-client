@@ -47,7 +47,7 @@ export class RegionBreakdownComponent implements OnInit {
       },
       series: [{
         name: 'Players',
-        data: data.map( d => ( { name: d._id, y: d.count } ))
+        data: data.map( d => ( { name: d.country, y: d.count } ))
       }]
     });
   }

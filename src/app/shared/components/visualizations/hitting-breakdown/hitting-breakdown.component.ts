@@ -68,7 +68,7 @@ export class HittingBreakdownComponent implements OnInit {
         name: 'Homeruns',
         type: 'column',
         yAxis: 1,
-        data: data.map( d => d.HR ),
+        data: data.map( d => d.homeRuns ),
         tooltip: {
           valueSuffix: ''
         }
@@ -76,7 +76,7 @@ export class HittingBreakdownComponent implements OnInit {
       }, {
         name: 'Batting Average',
         type: 'spline',
-        data: data.map( d => d.BA),
+        data: data.map( d => d.battingAverage),
         tooltip: {
           valueSuffix: ''
         }
