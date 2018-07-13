@@ -18,7 +18,6 @@ export class AttendanceTrendComponent implements OnInit {
     this.buildChart(data);
   }
   buildChart(data): void {
-    console.log(data);
     const n = 1;
     Highcharts.chart('attendanceTrend', {
 

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { ChadwickCounts } from '../models/chadwick-counts';
 import { environment } from '../../../environments/environment';
 import { ChadwickTopHitter } from '../models/chadwick-top-hitter';
+import { ChadwickOldFranchise } from '../models/chadwick-old-franchise';
 
 @Injectable({
   providedIn: 'root'
@@ -38,16 +39,27 @@ export class ChadwickService {
       d.playerID
     ));
   }
-  async getOldestFranchises() {
-    const data = await this._httpClient.get( 'http://localhost:3000/api/mlb/chadwick/franchise/oldest').toPromise();
+  async getOldestFranchises(): Promise<ChadwickOldFranchise[]> {
+    const data = await this._httpClient.get<ChadwickOldFranchise[]>(
+      `${environment.api.path}/mlb/chadwick/franchise/oldest`).toPromise();
+    return data.map( d => new ChadwickOldFranchise(
+      d.count,
+      d.games,
+      d.name,
+      d.winPercentage,
+      d.wins
+    ));
+  }
+  async getTopWorldSeriesWinners(): Promise<{ count: number, name: string}[]> {
+    const data = await this._httpClient.get<{ count: number, name: string}[]>(
+      `${environment.api.path}/mlb/chadwick/worldseries/wins`
+    ).toPromise();
     return data;
   }
-  async getTopWorldSeriesWinners() {
-    const data = await this._httpClient.get('http://localhost:3000/api/mlb/chadwick/worldseries/wins').toPromise();
-    return data;
-  }
-  async getAttendanceTrend() {
-    const data = await this._httpClient.get('http://localhost:3000/api/mlb/chadwick/homegames/attendance').toPromise();
+  async getAttendanceTrend(): Promise<{ count: number, yearID: number }[]> {
+    const data = await this._httpClient.get<{ count: number, yearID: number }[]>(
+      `${environment.api.path}/mlb/chadwick/homegames/attendance`
+    ).toPromise();
     return data;
   }
   async searchPlayers(term?: string) {
