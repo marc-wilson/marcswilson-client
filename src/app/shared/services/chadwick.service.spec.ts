@@ -6,6 +6,7 @@ import { environment } from '../../../environments/environment';
 import { ChadwickCounts } from '../models/chadwick-counts';
 import { ChadwickTopHitter } from '../models/chadwick-top-hitter';
 import { ChadwickOldFranchise } from '../models/chadwick-old-franchise';
+import { ChadwickPlayerSearchResult } from '../models/chadwick-player-search-result';
 
 describe('ChadwickService', () => {
   let httpMock: HttpTestingController;
@@ -157,6 +158,29 @@ describe('ChadwickService', () => {
       expect(_attendance[1].yearID).toEqual(2);
     });
     const req = httpMock.expectOne(`${environment.api.path}/mlb/chadwick/homegames/attendance`);
+    expect(req.request.method).toEqual('GET');
+    req.flush(response);
+  }));
+  it('should fetch player results', inject([ChadwickService], (service: ChadwickService) => {
+    const response = [
+      new ChadwickPlayerSearchResult('Player 1', 'player1', ['Team 1']),
+      new ChadwickPlayerSearchResult('Player 2', 'player2', ['Team 2']),
+      new ChadwickPlayerSearchResult('Player 3', 'player3', ['Team 3'])
+    ];
+    service.searchPlayers('player').then( _results => {
+      expect(_results).toBeTruthy();
+      expect(_results.length).toEqual(3);
+      expect(_results[0].name).toEqual('Player 1');
+      expect(_results[0].playerID).toEqual('player1');
+      expect(_results[0].teams.length).toEqual(1);
+      expect(_results[1].name).toEqual('Player 2');
+      expect(_results[1].playerID).toEqual('player2');
+      expect(_results[1].teams.length).toEqual(1);
+      expect(_results[2].name).toEqual('Player 3');
+      expect(_results[2].playerID).toEqual('player3');
+      expect(_results[2].teams.length).toEqual(1);
+    });
+    const req = httpMock.expectOne(`${environment.api.path}/mlb/chadwick/players/search/player`);
     expect(req.request.method).toEqual('GET');
     req.flush(response);
   }));

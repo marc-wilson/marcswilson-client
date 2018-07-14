@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ChadwickService } from '../../shared/services/chadwick.service';
 import { HomerunComparisonComponent } from '../../shared/components/visualizations/homerun-comparison/homerun-comparison.component';
+import { ChadwickPlayerSearchResult } from '../../shared/models/chadwick-player-search-result';
 
 @Component({
   selector: 'app-chadwick-player-comparison',
@@ -10,7 +11,7 @@ import { HomerunComparisonComponent } from '../../shared/components/visualizatio
 export class ChadwickPlayerComparisonComponent implements OnInit {
   public player1: { name: string, playerID: string };
   public player2: { name: string, playerID: string };
-  public results: any;
+  public results: ChadwickPlayerSearchResult[];
   private readonly _chadwickService: ChadwickService;
   @ViewChild('homerunCompare') homerunCompare: HomerunComparisonComponent;
   constructor(_chadwickService: ChadwickService) {
@@ -24,8 +25,8 @@ export class ChadwickPlayerComparisonComponent implements OnInit {
     await this.onPlayerChanged();
   }
   async searchPlayers(evt) {
-    const docs = await this._chadwickService.searchPlayers(evt.value);
-    this.results = docs;
+    const results = await this._chadwickService.searchPlayers(evt.value);
+    this.results = results;
   }
   async onPlayerChanged() {
     if (this.player1 && this.player2) {

@@ -4,6 +4,7 @@ import { ChadwickCounts } from '../models/chadwick-counts';
 import { environment } from '../../../environments/environment';
 import { ChadwickTopHitter } from '../models/chadwick-top-hitter';
 import { ChadwickOldFranchise } from '../models/chadwick-old-franchise';
+import { ChadwickPlayerSearchResult } from '../models/chadwick-player-search-result';
 
 @Injectable({
   providedIn: 'root'
@@ -62,11 +63,15 @@ export class ChadwickService {
     ).toPromise();
     return data;
   }
-  async searchPlayers(term?: string) {
-    const urlPrefix = 'http://localhost:3000/api/mlb/chadwick/players/search';
+  async searchPlayers(term?: string): Promise<ChadwickPlayerSearchResult[]> {
+    const urlPrefix = `${environment.api.path}/mlb/chadwick/players/search`;
     const url = urlPrefix + (term ?  `/${term}` : '');
-    const data = await this._httpClient.get(url).toPromise();
-    return data;
+    const data = await this._httpClient.get<ChadwickPlayerSearchResult[]>(url).toPromise();
+    return data.map( d => new ChadwickPlayerSearchResult(
+      d.name,
+      d.playerID,
+      d.teams
+    ));
   }
   async getPlayerComparisons(player1ID: string, player2ID: string) {
     const url = `http://localhost:3000/api/mlb/chadwick/players/compare/${player1ID}/${player2ID}`;
