@@ -63,9 +63,8 @@ export class ChadwickService {
     ).toPromise();
     return data;
   }
-  async searchPlayers(term?: string): Promise<ChadwickPlayerSearchResult[]> {
-    const urlPrefix = `${environment.api.path}/mlb/chadwick/players/search`;
-    const url = urlPrefix + (term ?  `/${term}` : '');
+  async searchPlayers(term: string): Promise<ChadwickPlayerSearchResult[]> {
+    const url = `${environment.api.path}/mlb/chadwick/players/search/${term}`;
     const data = await this._httpClient.get<ChadwickPlayerSearchResult[]>(url).toPromise();
     return data.map( d => new ChadwickPlayerSearchResult(
       d.name,
