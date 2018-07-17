@@ -10,9 +10,6 @@ section {
     grid-template-columns: repeat(2, 1fr);
     mat-form-field {
       padding: 15px;
-      mat-option {
-        line-height: initial !important;
-      }
     }
   }
   main {

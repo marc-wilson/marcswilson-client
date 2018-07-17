@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ChadwickService } from '../../../services/chadwick.service';
 import * as Highcharts from 'highcharts';
+import { PlayerDetail } from '../../../models/player-detail';
 
 @Component({
   selector: 'app-homerun-comparison',
@@ -8,8 +9,8 @@ import * as Highcharts from 'highcharts';
   styleUrls: ['./homerun-comparison.component.scss']
 })
 export class HomerunComparisonComponent implements OnInit {
-  @Input() player1;
-  @Input() player2;
+  @Input() player1: PlayerDetail;
+  @Input() player2: PlayerDetail;
   private readonly _chadwickService: ChadwickService;
   constructor(_chadwickService: ChadwickService) {
     this._chadwickService = _chadwickService;
@@ -64,12 +65,12 @@ export class HomerunComparisonComponent implements OnInit {
 
       series: [
         {
-          name: `${this.player1.data.nameFirst} ${this.player1.data.nameLast}`,
-          data: this.player1.data.batting.map( b => b.HR )
+          name: this.player1.fullName,
+          data: this.player1.batting.map( b => b.HR )
         },
         {
-          name: `${this.player2.data.nameFirst} ${this.player2.data.nameLast}`,
-          data: this.player2.data.batting.map( b => b.HR )
+          name: this.player2.fullName,
+          data: this.player2.batting.map( b => b.HR )
         }
       ],
     });

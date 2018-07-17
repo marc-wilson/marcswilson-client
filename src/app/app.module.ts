@@ -29,8 +29,9 @@ import { AttendanceTrendComponent } from './shared/components/visualizations/att
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChadwickComponent } from './views/chadwick/chadwick.component';
 import { ChadwickPlayerComparisonComponent } from './views/chadwick-player-comparison/chadwick-player-comparison.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomerunComparisonComponent } from './shared/components/visualizations/homerun-comparison/homerun-comparison.component';
+import { HittingComparisonComponent } from './shared/components/visualizations/hitting-comparison/hitting-comparison.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { HomerunComparisonComponent } from './shared/components/visualizations/h
     AttendanceTrendComponent,
     ChadwickComponent,
     ChadwickPlayerComparisonComponent,
-    HomerunComparisonComponent
+    HomerunComparisonComponent,
+    HittingComparisonComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +66,8 @@ import { HomerunComparisonComponent } from './shared/components/visualizations/h
     MatDividerModule,
     MatIconModule,
     MatSidenavModule,
-    MatToolbarModule
+    MatToolbarModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
