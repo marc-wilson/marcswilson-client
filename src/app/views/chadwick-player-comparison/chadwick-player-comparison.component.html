@@ -1,23 +1,23 @@
 <section>
   <header>
-    <mat-form-field *ngIf="results && player1">
-      <input type="text" [(ngModel)]="player1" placeholder="Player" matInput [matAutocomplete]="player1Auto" (keyup)="searchPlayers()" />
-      <mat-autocomplete #player1Auto="matAutocomplete" (optionSelected)="onPlayerChanged()" [displayWith]="displayFn" >
-        <mat-option *ngFor="let result of results" [value]="result">
-          {{result.name}}
+    <mat-form-field>
+      <input type="text" [(ngModel)]="player1.name" placeholder="Player" matInput [matAutocomplete]="player1Auto" (keyup)="searchPlayers(player1.name)" />
+      <mat-autocomplete #player1Auto="matAutocomplete" (optionSelected)="onPlayerChanged($event, 1)" [displayWith]="displayFn" >
+        <mat-option *ngFor="let result of results" [value]="result.playerID">
+          <div>{{result.name}} | {{result.teams.join(', ')}}</div>
         </mat-option>
       </mat-autocomplete>
     </mat-form-field>
-    <mat-form-field *ngIf="results && player2">
-      <input type="text" [(ngModel)]="player2" placeholder="Player" matInput [matAutocomplete]="player2Auto" (keyup)="searchPlayers()" />
-      <mat-autocomplete #player2Auto="matAutocomplete" (optionSelected)="onPlayerChanged()" [displayWith]="displayFn">
+    <mat-form-field>
+      <input type="text" [(ngModel)]="player2" placeholder="Player" matInput [matAutocomplete]="player2Auto" (keyup)="searchPlayers(player2.name)" />
+      <mat-autocomplete #player2Auto="matAutocomplete" (optionSelected)="onPlayerChanged($event, 2)" [displayWith]="displayFn">
         <mat-option *ngFor="let result of results" [value]="result">
-          {{result.name}}
+          <div>{{result.name}} | {{result.teams.join(', ')}}</div>
         </mat-option>
       </mat-autocomplete>
     </mat-form-field>
   </header>
-  <main *ngIf="player1 && player2">
-    <app-homerun-comparison #homerunCompare [player1]="player1" [player2]="player2"></app-homerun-comparison>
+  <main *ngIf="player1Detail && player2Detail">
+    <app-homerun-comparison #homerunCompare [player1]="player1Detail" [player2]="player2Detail"></app-homerun-comparison>
   </main>
 </section>
