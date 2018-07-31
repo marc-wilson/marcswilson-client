@@ -33,6 +33,10 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
+/src/**/*.js
+/src/**/*.js.map
+/e2e/**/*.js
+/e2e/**/*.js.map
 
 # System Files
 .DS_Store

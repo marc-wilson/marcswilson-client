@@ -6,7 +6,7 @@ import { ChadwickStatsComponent } from './views/chadwick-stats/chadwick-stats.co
 import { ChadwickPlayerComparisonComponent } from './views/chadwick-player-comparison/chadwick-player-comparison.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '/chadwick' },
+  { path: '', pathMatch: 'full', redirectTo: '/home' },
   { path: 'home', component: HomeViewComponent },
   { path: 'chadwick', component: ChadwickComponent, children: [
       { path: 'overview', component: ChadwickStatsComponent },
