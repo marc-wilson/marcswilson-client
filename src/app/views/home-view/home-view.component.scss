@@ -43,6 +43,21 @@
         }
       }
     }
+    #socialIcons {
+      display: grid;
+      align-items: center;
+      text-align: center;
+      .icon {
+        opacity: 0.7;
+        cursor: pointer;
+        &:hover {
+          opacity: 1;
+        }
+        fa-icon {
+          font-size: 200%;
+        }
+      }
+    }
   }
   footer {
     grid-area: footer;

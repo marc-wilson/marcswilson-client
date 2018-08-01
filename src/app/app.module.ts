@@ -32,6 +32,7 @@ import { ChadwickPlayerComparisonComponent } from './views/chadwick-player-compa
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomerunComparisonComponent } from './shared/components/visualizations/homerun-comparison/homerun-comparison.component';
 import { HittingComparisonComponent } from './shared/components/visualizations/hitting-comparison/hitting-comparison.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { HittingComparisonComponent } from './shared/components/visualizations/h
     AppRoutingModule,
     MatAutocompleteModule,
     MatSelectModule,
+    FontAwesomeModule,
     FormsModule,
     MatInputModule,
     HttpClientModule,
