@@ -1,3 +1,4 @@
+@import '../../../variables';
 #homeView {
   display: grid;
   grid-template-areas: "header"
@@ -14,6 +15,8 @@
     width: 60%;
     margin: 0 auto;
     grid-area: main;
+    display: grid;
+    grid-template-rows: auto auto 1fr;
     #heading {
       padding: 15px;
       text-align: center;
@@ -33,28 +36,47 @@
         &:hover {
           opacity: 1;
         }
-        p {
-          padding: 15px 0;
-          color: gray;
-        }
         .icon {
+          padding: 30px;
           text-align: center;
           color: gray;
+          font-size: 400%;
         }
       }
     }
     #socialIcons {
       display: grid;
-      align-items: center;
-      text-align: center;
-      .icon {
-        opacity: 0.7;
-        cursor: pointer;
-        &:hover {
-          opacity: 1;
-        }
-        fa-icon {
-          font-size: 200%;
+      grid-template-rows: 1fr;
+      .icons-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        text-align: center;
+        width: 100%;
+        .icon {
+          opacity: 0.7;
+          cursor: pointer;
+          transition: 300ms all;
+          text-decoration: none;
+          color: black;
+          &:hover {
+            opacity: 1;
+            .stack-overflow {
+              color: $stackOverflowHex;
+            }
+            .linked-in {
+              color: $linkedInHex;
+            }
+            .facebook {
+              color: $facebookHex;
+            }
+            .twitter {
+              color: $twitterHex
+            }
+          }
+          fa-icon {
+            font-size: 200%;
+          }
         }
       }
     }

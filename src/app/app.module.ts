@@ -7,7 +7,7 @@ import { HomeViewComponent } from './views/home-view/home-view.component';
 import { BoxscoresComponent } from './shared/components/boxscores/boxscores.component';
 import { HttpClientModule } from '@angular/common/http';
 import {
-  MatAutocompleteModule,
+  MatAutocompleteModule, MatBottomSheetModule,
   MatCardModule,
   MatDividerModule,
   MatExpansionModule,
@@ -33,6 +33,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomerunComparisonComponent } from './shared/components/visualizations/homerun-comparison/homerun-comparison.component';
 import { HittingComparisonComponent } from './shared/components/visualizations/hitting-comparison/hitting-comparison.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { PortfolioViewComponent } from './views/portfolio-view/portfolio-view.component';
+import { AboutViewComponent } from './views/about-view/about-view.component';
+import { ContactFormComponent } from './shared/dialogs/contact-form/contact-form.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +54,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ChadwickComponent,
     ChadwickPlayerComparisonComponent,
     HomerunComparisonComponent,
-    HittingComparisonComponent
+    HittingComparisonComponent,
+    PortfolioViewComponent,
+    AboutViewComponent,
+    ContactFormComponent
   ],
   imports: [
     BrowserModule,
@@ -63,6 +69,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     FormsModule,
     MatInputModule,
     HttpClientModule,
+    MatBottomSheetModule,
     MatExpansionModule,
     MatCardModule,
     MatDividerModule,
@@ -72,6 +79,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ReactiveFormsModule
   ],
   providers: [],
+  entryComponents: [
+    ContactFormComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

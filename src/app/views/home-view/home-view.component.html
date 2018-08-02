@@ -10,48 +10,47 @@
       </p>
     </div>
     <div id="cards">
-      <mat-card>
+      <mat-card routerLink="/portfolio">
         <div class="mat-subheading-2">Portfolio</div>
         <mat-divider></mat-divider>
-        <p>
-          Take a look at some of the stuff I've built.
-        </p>
         <div class="icon">
-          <mat-icon>work</mat-icon>
+          <fa-icon [icon]="faBriefcase"></fa-icon>
         </div>
       </mat-card>
-      <mat-card>
+      <mat-card (click)="openContactForm()">
         <div class="mat-subheading-2">Contact</div>
         <mat-divider></mat-divider>
-        <p>
-          Interested in working together? Send me an email and let's discuss!
-        </p>
         <div class="icon">
-          <mat-icon>mail</mat-icon>
+          <fa-icon [icon]="faEnvelope"></fa-icon>
         </div>
       </mat-card>
-      <mat-card>
+      <mat-card routerLink="/about">
         <div class="mat-subheading-2">About</div>
         <mat-divider></mat-divider>
-        <p>
-          Kansan turned Washatonian with a deep interest in writing code and creating awesome things.
-        </p>
         <div class="icon">
-          <mat-icon>person</mat-icon>
+          <fa-icon [icon]="faUserTie"></fa-icon>
         </div>
       </mat-card>
     </div>
     <div id="socialIcons">
-        <div class="icon">
+      <div class="icons-container">
+        <a href="https://github.com/mswilson4040" target="_blank" class="icon">
           <fa-icon [icon]="faGithub"></fa-icon>
-        </div>
-        <div class="icon">
-          <fa-icon [icon]="faStackOverflow"></fa-icon>
-        </div>
-        <div class="icon">
-          <fa-icon [icon]="faLinkedIn"></fa-icon>
-        </div>
+        </a>
+        <a href="https://stackoverflow.com/users/2415802/mwilson" target="_blank" class="icon">
+          <fa-icon [icon]="faStackOverflow" class="stack-overflow"></fa-icon>
+        </a>
+        <a href="https://www.linkedin.com/in/marc-wilson-43675750" target="_blank" class="icon">
+          <fa-icon [icon]="faLinkedIn" class="linked-in"></fa-icon>
+        </a>
+        <a href="https://www.facebook.com/mswilson4040" target="_blank" class="icon">
+          <fa-icon [icon]="faFacebookF" class="facebook"></fa-icon>
+        </a>
+        <a href="https://twitter.com/Mswilson4040" target="_blank" class="icon">
+          <fa-icon [icon]="faTwitter" class="twitter"></fa-icon>
+        </a>
       </div>
+    </div>
   </main>
   <footer>
     <mat-toolbar color="primary">
