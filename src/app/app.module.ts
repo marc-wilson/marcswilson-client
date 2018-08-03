@@ -7,7 +7,7 @@ import { HomeViewComponent } from './views/home-view/home-view.component';
 import { BoxscoresComponent } from './shared/components/boxscores/boxscores.component';
 import { HttpClientModule } from '@angular/common/http';
 import {
-  MatAutocompleteModule, MatBottomSheetModule,
+  MatAutocompleteModule, MatBottomSheetModule, MatButtonModule,
   MatCardModule,
   MatDividerModule,
   MatExpansionModule,
@@ -69,6 +69,7 @@ import { ContactFormComponent } from './shared/dialogs/contact-form/contact-form
     FormsModule,
     MatInputModule,
     HttpClientModule,
+    MatButtonModule,
     MatBottomSheetModule,
     MatExpansionModule,
     MatCardModule,

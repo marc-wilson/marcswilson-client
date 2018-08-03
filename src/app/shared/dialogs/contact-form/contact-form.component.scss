@@ -1,0 +1,19 @@
+section {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding: 30px;
+  header {
+    div {
+      margin: 0 0 10px 0;
+    }
+  }
+  main {
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    padding: 15px 0;
+  }
+  footer {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
