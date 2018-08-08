@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeViewComponent } from './views/home-view/home-view.component';
+import { HomeViewComponent } from './areas/home/home-view/home-view.component';
 import { BoxscoresComponent } from './shared/components/boxscores/boxscores.component';
 import { HttpClientModule } from '@angular/common/http';
 import {
@@ -33,8 +33,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomerunComparisonComponent } from './shared/components/visualizations/homerun-comparison/homerun-comparison.component';
 import { HittingComparisonComponent } from './shared/components/visualizations/hitting-comparison/hitting-comparison.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { PortfolioViewComponent } from './views/portfolio-view/portfolio-view.component';
-import { AboutViewComponent } from './views/about-view/about-view.component';
+import { PortfolioViewComponent } from './areas/portfolio/portfolio-view/portfolio-view.component';
+import { AboutViewComponent } from './areas/about/about-view/about-view.component';
 import { ContactFormComponent } from './shared/dialogs/contact-form/contact-form.component';
 
 @NgModule({

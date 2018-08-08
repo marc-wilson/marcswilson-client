@@ -9,7 +9,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import { faBriefcase, faUserTie, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { MatBottomSheet } from '@angular/material';
-import { ContactFormComponent } from '../../shared/dialogs/contact-form/contact-form.component';
+import { ContactFormComponent } from '../../../shared/dialogs/contact-form/contact-form.component';
 
 @Component({
   selector: 'app-home-view',

@@ -1,14 +1,13 @@
-@import '../../../variables';
+@import '../../../../variables';
 #homeView {
   display: grid;
   grid-template-areas: "header"
-                       "main"
-                       "footer";
-  grid-template-rows: 30% 1fr auto;
+                       "main";
+  grid-template-rows: 30% 1fr;
   height: 100%;
   header {
     grid-area: header;
-    background: url('../../../images/jumbotron-seats.jpg');
+    background: url('../../../../images/jumbotron-seats.jpg');
     background-size: cover;
   }
   main {
@@ -79,13 +78,6 @@
           }
         }
       }
-    }
-  }
-  footer {
-    grid-area: footer;
-    mat-toolbar {
-      padding: 30px;
-      color: white;
     }
   }
 }
