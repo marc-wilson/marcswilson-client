@@ -2,7 +2,27 @@ section {
   height: 100%;
   display: grid;
   grid-template-rows: auto 1fr auto;
-  header {}
+  header {
+    mat-toolbar {
+      display: grid;
+      align-items: center;
+      justify-items: end;
+      ul {
+        display: inline-flex;
+        list-style-type: none;
+        li {
+          padding: 0 10px;
+          font-weight: 400;
+          opacity: 0.7;
+          cursor: pointer;
+          transition: 200ms all;
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
   main {}
   footer {}
 }
