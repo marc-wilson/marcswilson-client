@@ -36,6 +36,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PortfolioViewComponent } from './areas/portfolio/portfolio-view/portfolio-view.component';
 import { AboutViewComponent } from './areas/about/about-view/about-view.component';
 import { ContactFormComponent } from './shared/dialogs/contact-form/contact-form.component';
+import { PortfolioHomeComponent } from './areas/portfolio/portfolio-home/portfolio-home.component';
+import { PortfolioNpmComponent } from './areas/portfolio/portfolio-npm/portfolio-npm.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,9 @@ import { ContactFormComponent } from './shared/dialogs/contact-form/contact-form
     HittingComparisonComponent,
     PortfolioViewComponent,
     AboutViewComponent,
-    ContactFormComponent
+    ContactFormComponent,
+    PortfolioHomeComponent,
+    PortfolioNpmComponent
   ],
   imports: [
     BrowserModule,

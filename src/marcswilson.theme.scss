@@ -22,6 +22,10 @@ $marcswilson-theme: mat-light-theme($marcswilson-primary, $marcswilson-accent, $
 $marcswilson-typography: mat-typography-config(
   $font-family: 'sans-serif'
 );
+.mat-display-1 {
+  margin-bottom: 15px !important;
+  color: #424242;
+}
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component

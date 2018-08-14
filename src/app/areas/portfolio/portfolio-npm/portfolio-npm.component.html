@@ -1,0 +1,19 @@
+<section>
+  <header>
+    <div class="mat-display-1">NPM Packages</div>
+    <mat-divider></mat-divider>
+  </header>
+  <main>
+    <mat-accordion *ngIf="packages">
+      <mat-expansion-panel *ngFor="let pkg of packages">
+        <mat-expansion-panel-header>
+          <mat-panel-title>{{pkg.name}}</mat-panel-title>
+          <mat-panel-description>{{pkg['dist-tags'].latest}}</mat-panel-description>
+        </mat-expansion-panel-header>
+        <div>
+          {{pkg.description}}
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </main>
+</section>
