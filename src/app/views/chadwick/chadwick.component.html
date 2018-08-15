@@ -1,14 +1,1 @@
-<mat-sidenav-container>
-  <mat-sidenav #sidenav>
-    <ul>
-      <li routerLink="/portfolio/chadwick/overview" (click)="sidenav.close()">Overview</li>
-      <li routerLink="/portfolio/chadwick/player-comparison" (click)="sidenav.close()">Player Comparison</li>
-    </ul>
-  </mat-sidenav>
-  <section>
-    <mat-toolbar color="primary">
-      <mat-icon (click)="sidenav.open()">menu</mat-icon>
-    </mat-toolbar>
-    <router-outlet></router-outlet>
-  </section>
-</mat-sidenav-container>
+<router-outlet></router-outlet>

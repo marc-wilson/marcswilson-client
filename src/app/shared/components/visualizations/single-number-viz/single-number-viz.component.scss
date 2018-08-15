@@ -1,5 +1,6 @@
 section {
   mat-card {
+    height: 295px;
     display: grid;
     grid-template-rows: repeat(3, auto);
     .value {

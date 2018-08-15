@@ -38,6 +38,8 @@ import { AboutViewComponent } from './areas/about/about-view/about-view.componen
 import { ContactFormComponent } from './shared/dialogs/contact-form/contact-form.component';
 import { PortfolioHomeComponent } from './areas/portfolio/portfolio-home/portfolio-home.component';
 import { PortfolioNpmComponent } from './areas/portfolio/portfolio-npm/portfolio-npm.component';
+import { PortfolioApiComponent } from './areas/portfolio/portfolio-api/portfolio-api.component';
+import { PortfolioAppsComponent } from './areas/portfolio/portfolio-apps/portfolio-apps.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +63,9 @@ import { PortfolioNpmComponent } from './areas/portfolio/portfolio-npm/portfolio
     AboutViewComponent,
     ContactFormComponent,
     PortfolioHomeComponent,
-    PortfolioNpmComponent
+    PortfolioNpmComponent,
+    PortfolioApiComponent,
+    PortfolioAppsComponent
   ],
   imports: [
     BrowserModule,

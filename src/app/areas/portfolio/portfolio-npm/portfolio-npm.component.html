@@ -10,9 +10,7 @@
           <mat-panel-title>{{pkg.name}}</mat-panel-title>
           <mat-panel-description>{{pkg['dist-tags'].latest}}</mat-panel-description>
         </mat-expansion-panel-header>
-        <div>
-          {{pkg.description}}
-        </div>
+        <div [innerHTML]="pkg.readmeHTML"></div>
       </mat-expansion-panel>
     </mat-accordion>
   </main>

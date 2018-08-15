@@ -36,6 +36,7 @@ export class NpmPackage implements INpmPackage {
   public bugs: { url: string };
   public keywords: string[];
   public _attachments: any;
+  public readmeHTML: string;
   constructor(pkg?) {
     if (pkg) {
       this._id = pkg._id;
@@ -55,6 +56,7 @@ export class NpmPackage implements INpmPackage {
       this.bugs = pkg.bugs;
       this.keywords = pkg.keywords;
       this._attachments = pkg._attachments;
+      this.readmeHTML = pkg.readmeHTML;
     }
   }
 }

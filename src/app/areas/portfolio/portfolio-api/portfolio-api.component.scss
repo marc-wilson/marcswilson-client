@@ -1,0 +1,23 @@
+section {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  header {
+    padding: 15px 0;
+  }
+  main {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 15px;
+    mat-card {
+      cursor: pointer;
+      .card-header {
+        .divider-container {
+          position: relative
+        }
+      }
+      .card-footer {
+        text-align: right;
+      }
+    }
+  }
+}

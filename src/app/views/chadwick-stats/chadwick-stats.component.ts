@@ -8,14 +8,14 @@ import { ChadwickCounts } from '../../shared/models/chadwick-counts';
   styleUrls: ['./chadwick-stats.component.scss']
 })
 export class ChadwickStatsComponent implements OnInit {
-  private readonly _chandwickService: ChadwickService;
+  private readonly _chadwickService: ChadwickService;
   public counts: ChadwickCounts;
   constructor(_chadwickService: ChadwickService) {
-    this._chandwickService = _chadwickService;
+    this._chadwickService = _chadwickService;
   }
 
   async ngOnInit() {
-    this.counts = await this._chandwickService.getChadwickCounts();
+    this.counts = await this._chadwickService.getChadwickCounts();
   }
 
 }

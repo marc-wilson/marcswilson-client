@@ -8,6 +8,8 @@ import { PortfolioViewComponent } from './areas/portfolio/portfolio-view/portfol
 import { AboutViewComponent } from './areas/about/about-view/about-view.component';
 import { PortfolioHomeComponent } from './areas/portfolio/portfolio-home/portfolio-home.component';
 import { PortfolioNpmComponent } from './areas/portfolio/portfolio-npm/portfolio-npm.component';
+import { PortfolioApiComponent } from './areas/portfolio/portfolio-api/portfolio-api.component';
+import { PortfolioAppsComponent } from './areas/portfolio/portfolio-apps/portfolio-apps.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home' },
@@ -20,7 +22,9 @@ const routes: Routes = [
           { path: 'overview', component: ChadwickStatsComponent },
           { path: 'player-comparison', component: ChadwickPlayerComparisonComponent }
         ] },
-      { path: 'npm', component: PortfolioNpmComponent }
+      { path: 'npm', component: PortfolioNpmComponent },
+      { path: 'api', component: PortfolioApiComponent },
+      { path: 'apps', component: PortfolioAppsComponent }
     ]
   }
 ];
