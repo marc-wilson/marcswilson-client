@@ -2,6 +2,9 @@ section {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 30px;
+  .span-2 {
+    grid-column: span 2
+  }
   .span-3 {
     grid-column: span 3;
   }

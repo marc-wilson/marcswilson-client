@@ -1,6 +1,5 @@
 import { Component, ElementRef, Input, OnInit } from '@angular/core';
 import { tween, easing } from 'popmotion';
-import { ChadwickCounts } from '../../../models/chadwick-counts';
 
 @Component({
   selector: 'app-single-number-viz',

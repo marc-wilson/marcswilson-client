@@ -17,6 +17,10 @@ export class HittingBreakdownComponent implements OnInit {
     const data = await this._chadwickService.getTopHitters();
     this.buildChart(data);
   }
+  async updateChart(filter?: { name: string, value: string }): Promise<void> {
+    const data = await this._chadwickService.getTopHitters(filter);
+    this.buildChart(data);
+  }
   buildChart(data): void {
     const playerNames = data.map( d => d.name );
     Highcharts.chart('hittingBreakdown', {

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { ChadwickCounts } from '../models/chadwick-counts';
 import { environment } from '../../../environments/environment';
 import { ChadwickTopHitter } from '../models/chadwick-top-hitter';
@@ -28,9 +28,10 @@ export class ChadwickService {
     ).toPromise();
     return data;
   }
-  async getTopHitters(): Promise<ChadwickTopHitter[]> {
+  async getTopHitters(filter?: { name: string, value: string }): Promise<ChadwickTopHitter[]> {
+  const opts = filter ? filter : {};
     const data = await this._httpClient.get<ChadwickTopHitter[]>(
-      `${environment.api.path}/mlb/chadwick/players/top-hitters`
+      `${environment.api.path}/mlb/chadwick/players/top-hitters`, { params: opts }
     ).toPromise();
     return data.map( d => new ChadwickTopHitter(
       d.atBats,

@@ -9,6 +9,9 @@ import * as Highcharts from 'highcharts';
 export class AppComponent {
   constructor() {
     Highcharts.setOptions({
+      credits: {
+        enabled: false
+      },
       colors: Highcharts.map(Highcharts.getOptions().colors, function (color) {
         return {
           radialGradient: {

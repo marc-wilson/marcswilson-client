@@ -1,6 +1,8 @@
 section {
   display: grid;
   grid-template-rows: auto 1fr;
+  width: 80%;
+  margin: 0 auto;
   header {
     padding: 15px 0;
   }
