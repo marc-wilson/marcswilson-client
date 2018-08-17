@@ -60,7 +60,14 @@ export class RegionBreakdownComponent implements OnInit {
     });
   }
   onDataPointClick(d: MouseEvent): void {
-    this._activePoint = { name: 'country', value: d['point'].name };
+    if (!this._activePoint) {
+      this._activePoint = { name: 'country', value: d['point'].name };
+    } else if (this._activePoint.value === d['point'].name) {
+      this._activePoint = null;
+    } else {
+      this._activePoint = d['point'].name;
+    }
+
     this.dataPointClickEmitter.emit(this._activePoint);
   }
 }

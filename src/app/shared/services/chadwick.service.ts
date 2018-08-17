@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { ChadwickCounts } from '../models/chadwick-counts';
 import { environment } from '../../../environments/environment';
 import { ChadwickTopHitter } from '../models/chadwick-top-hitter';
@@ -29,22 +29,24 @@ export class ChadwickService {
     return data;
   }
   async getTopHitters(filter?: { name: string, value: string }): Promise<ChadwickTopHitter[]> {
-  const opts = filter ? filter : {};
+  const opts = filter ? filter : null;
     const data = await this._httpClient.get<ChadwickTopHitter[]>(
       `${environment.api.path}/mlb/chadwick/players/top-hitters`, { params: opts }
     ).toPromise();
     return data.map( d => new ChadwickTopHitter(
       d.atBats,
       d.battingAverage,
+      d.birthCountry,
       d.hits,
       d.homeRuns,
       d.name,
       d.playerID
     ));
   }
-  async getOldestFranchises(): Promise<ChadwickOldFranchise[]> {
+  async getOldestFranchises(filter?: { name: string, value: string }): Promise<ChadwickOldFranchise[]> {
+    const opts = filter ? filter : null;
     const data = await this._httpClient.get<ChadwickOldFranchise[]>(
-      `${environment.api.path}/mlb/chadwick/franchise/oldest`).toPromise();
+      `${environment.api.path}/mlb/chadwick/franchise/oldest`, { params: opts }).toPromise();
     return data.map( d => new ChadwickOldFranchise(
       d.count,
       d.games,

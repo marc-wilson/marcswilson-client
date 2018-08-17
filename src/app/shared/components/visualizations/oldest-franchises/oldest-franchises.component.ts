@@ -17,6 +17,10 @@ export class OldestFranchisesComponent implements OnInit {
     const data = await this._chadwickService.getOldestFranchises();
     this.buildChart(data);
   }
+  async updateChart(filter: { name: string, value: string }): Promise<void> {
+    const data = await this._chadwickService.getOldestFranchises(filter);
+    this.buildChart(data);
+  }
   buildChart(data): void {
     const teamNames = data.map( d => d.name );
     Highcharts.chart('franchises', {

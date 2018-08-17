@@ -3,6 +3,7 @@ import { ChadwickService } from '../../shared/services/chadwick.service';
 import { ChadwickCounts } from '../../shared/models/chadwick-counts';
 import { RegionBreakdownComponent } from '../../shared/components/visualizations/region-breakdown/region-breakdown.component';
 import { HittingBreakdownComponent } from '../../shared/components/visualizations/hitting-breakdown/hitting-breakdown.component';
+import { OldestFranchisesComponent } from '../../shared/components/visualizations/oldest-franchises/oldest-franchises.component';
 
 @Component({
   selector: 'app-chadwick-stats',
@@ -14,6 +15,7 @@ export class ChadwickStatsComponent implements OnInit {
   public counts: ChadwickCounts;
   @ViewChild('regionBreakdown') regionBreakdown: RegionBreakdownComponent;
   @ViewChild('hittingBreakdown') hittingBreakdown: HittingBreakdownComponent;
+  @ViewChild('oldestFranchises') oldestFranchises: OldestFranchisesComponent;
   constructor(_chadwickService: ChadwickService) {
     this._chadwickService = _chadwickService;
   }
@@ -23,5 +25,6 @@ export class ChadwickStatsComponent implements OnInit {
   }
   filterUpdated(filter) {
     this.hittingBreakdown.updateChart(filter);
+    this.oldestFranchises.updateChart(filter);
   }
 }

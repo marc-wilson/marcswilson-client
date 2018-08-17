@@ -1,6 +1,7 @@
 interface IChadwickTopHitter {
   atBats: number;
   battingAverage: number;
+  birthCountry: string;
   hits: number;
   homeRuns: number;
   name: string;
@@ -10,16 +11,18 @@ interface IChadwickTopHitter {
 export class ChadwickTopHitter implements IChadwickTopHitter {
   public atBats: number;
   public battingAverage: number;
+  public birthCountry: string;
   public hits: number;
   public homeRuns: number;
   public name: string;
   public playerID: string;
-  constructor(_atBats?: number, _battingAverage?: number, _hits?: number, _homeRuns?: number, _name?: string, _playerID?: string) {
-    this.atBats = _atBats;
-    this.battingAverage = _battingAverage;
-    this.hits = _hits;
-    this.homeRuns = _homeRuns;
+  constructor(_ab?: number, _ba?: number, _bc?: string, _h?: number, _hr?: number, _name?: string, _id?: string) {
+    this.atBats = _ab;
+    this.battingAverage = _ba;
+    this.birthCountry = _bc;
+    this.hits = _h;
+    this.homeRuns = _hr;
     this.name = _name;
-    this.playerID = _playerID;
+    this.playerID = _id;
   }
 }
