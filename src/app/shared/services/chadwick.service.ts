@@ -29,7 +29,7 @@ export class ChadwickService {
     return data;
   }
   async getTopHitters(filter?: { name: string, value: string }): Promise<ChadwickTopHitter[]> {
-  const opts = filter ? filter : null;
+    const opts = filter ? filter : null;
     const data = await this._httpClient.get<ChadwickTopHitter[]>(
       `${environment.api.path}/mlb/chadwick/players/top-hitters`, { params: opts }
     ).toPromise();
@@ -61,9 +61,10 @@ export class ChadwickService {
     ).toPromise();
     return data;
   }
-  async getAttendanceTrend(): Promise<{ count: number, yearID: number }[]> {
+  async getAttendanceTrend(filter?: { name: string, value: string }): Promise<{ count: number, yearID: number }[]> {
+    const opts = filter ? filter : null;
     const data = await this._httpClient.get<{ count: number, yearID: number }[]>(
-      `${environment.api.path}/mlb/chadwick/homegames/attendance`
+      `${environment.api.path}/mlb/chadwick/homegames/attendance`, { params: opts }
     ).toPromise();
     return data;
   }

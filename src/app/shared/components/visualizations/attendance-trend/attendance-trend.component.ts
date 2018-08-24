@@ -17,8 +17,11 @@ export class AttendanceTrendComponent implements OnInit {
     const data = await this._chadwickService.getAttendanceTrend();
     this.buildChart(data);
   }
+  async updateChart(filter?: { name: string, value: string }): Promise<void> {
+  const data = await this._chadwickService.getAttendanceTrend(filter);
+  this.buildChart(data);
+  }
   buildChart(data): void {
-    const n = 1;
     Highcharts.chart('attendanceTrend', {
 
       chart: {
@@ -26,7 +29,7 @@ export class AttendanceTrendComponent implements OnInit {
       },
 
       title: {
-        text: `Attendance from ${data[0]._id} - ${data[data.length - 1]._id}`
+        text: `Attendance from ${data[0].yearID} - ${data[data.length - 1].yearID}`
       },
 
       subtitle: {

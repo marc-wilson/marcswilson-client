@@ -65,7 +65,7 @@ export class RegionBreakdownComponent implements OnInit {
     } else if (this._activePoint.value === d['point'].name) {
       this._activePoint = null;
     } else {
-      this._activePoint = d['point'].name;
+      this._activePoint = { name: 'country', value: d['point'].name };
     }
 
     this.dataPointClickEmitter.emit(this._activePoint);
