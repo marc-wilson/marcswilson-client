@@ -6,7 +6,7 @@
         <mat-option *ngFor="let result of results" [value]="result">
           <div>
             {{result.name}}
-            <small>{{result.teams.join(', ')}}</small>
+            <small style="color: lightgray;" class="mat-caption">{{result.teams.join(', ')}}</small>
           </div>
         </mat-option>
       </mat-autocomplete>
@@ -24,7 +24,62 @@
     </mat-form-field>
   </header>
   <main>
-    <app-homerun-comparison #homerunCompare [player1]="player1Detail" [player2]="player2Detail"></app-homerun-comparison>
+    <div class="player-details" *ngIf="player1Detail && player2Detail">
+      <div class="player-detail">
+        <div class="detail-item">
+          <div class="mat-caption">From</div>
+          <div class="mat-body-1">{{player1Detail.birthCountry || 'Unknown'}}</div>
+        </div>
+        <div class="detail-item">
+          <div class="mat-caption">Debut</div>
+          <div class="mat-body-1">{{player1Detail.debut | date}}</div>
+        </div>
+        <div class="detail-item">
+          <div class="mat-caption">Final Game</div>
+          <div class="mat-body-1">{{player1Detail.finalGame | date}}</div>
+        </div>
+        <div class="detail-item">
+          <div class="mat-caption">Throws</div>
+          <div class="mat-body-1">{{player1Detail.throws}}</div>
+        </div>
+        <div class="detail-item">
+          <div class="mat-caption">Height</div>
+          <div class="mat-body-1">{{player1Detail.height}}</div>
+        </div>
+        <div class="detail-item">
+          <div class="mat-caption">Weight</div>
+          <div class="mat-body-1">{{player1Detail.weight}}</div>
+        </div>
+      </div>
+      <div class="player-detail">
+        <div class="detail-item">
+          <div class="mat-caption">From</div>
+          <div class="mat-body-1">{{player2Detail.birthCountry || 'Unknown'}}</div>
+        </div>
+        <div class="detail-item">
+          <div class="mat-caption">Debut</div>
+          <div class="mat-body-1">{{player2Detail.debut | date}}</div>
+        </div>
+        <div class="detail-item">
+          <div class="mat-caption">Final Game</div>
+          <div class="mat-body-1">{{player2Detail.finalGame | date}}</div>
+        </div>
+        <div class="detail-item">
+          <div class="mat-caption">Throws</div>
+          <div class="mat-body-1">{{player2Detail.throws}}</div>
+        </div>
+        <div class="detail-item">
+          <div class="mat-caption">Height</div>
+          <div class="mat-body-1">{{player2Detail.height}}</div>
+        </div>
+        <div class="detail-item">
+          <div class="mat-caption">Weight</div>
+          <div class="mat-body-1">{{player2Detail.weight}}</div>
+        </div>
+      </div>
+    </div>
+    <app-pitching-comparison #pitchingCompare [player1]="player1Detail" [player2]="player2Detail" *ngIf="(player1Detail && player2Detail) && (player1Detail.pitching.length > 0 || player2Detail.pitching.length)"></app-pitching-comparison>
     <app-hitting-comparison #hittingCompare [player1]="player1Detail" [player2]="player2Detail"></app-hitting-comparison>
+    <app-fielding-comparison #fieldingCompare [player1]="player1Detail" [player2]="player2Detail"></app-fielding-comparison>
   </main>
 </section>

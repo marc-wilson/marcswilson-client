@@ -1,1 +1,23 @@
-<router-outlet></router-outlet>
+<mat-drawer-container>
+  <mat-drawer mode="side" opened [class.side-nav-open]="sideNavState" (mouseenter)="toggleNav()"  (mouseleave)="toggleNav()">
+    <div class="nav-links-container">
+      <div class="nav-link" routerLink="overview" routerLinkActive="active-link">
+        <div class="icon-container">
+          <fa-icon *ngIf="faBaseballBall" [icon]="faBaseballBall"></fa-icon>
+        </div>
+        <div class="link-text mat-body-1" *ngIf="sideNavState" [class.side-nav-open]="sideNavState">Overview</div>
+      </div>
+      <div class="nav-link" routerLink="player-comparison" routerLinkActive="active-link">
+        <div class="icon-container">
+          <fa-icon *ngIf="faUserFriends" [icon]="faUserFriends"></fa-icon>
+        </div>
+        <div class="link-text mat-body-1" *ngIf="sideNavState" [class.side-nav-open]="sideNavState">Player Comparison</div>
+      </div>
+    </div>
+
+  </mat-drawer>
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>
+

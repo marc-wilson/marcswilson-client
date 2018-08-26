@@ -14,5 +14,24 @@ section {
   }
   main {
     grid-area: main;
+    .player-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 15px;
+      padding-left: 15px;
+      .player-detail {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding: 15px 0;
+        .detail-item {
+          .mat-caption {
+            color: gray;
+          }
+          div:last-child {
+            padding: 5px 10px;
+          }
+        }
+      }
+    }
   }
 }

@@ -40,6 +40,8 @@ import { PortfolioHomeComponent } from './areas/portfolio/portfolio-home/portfol
 import { PortfolioNpmComponent } from './areas/portfolio/portfolio-npm/portfolio-npm.component';
 import { PortfolioApiComponent } from './areas/portfolio/portfolio-api/portfolio-api.component';
 import { PortfolioAppsComponent } from './areas/portfolio/portfolio-apps/portfolio-apps.component';
+import { FieldingComparisonComponent } from './shared/components/visualizations/fielding-comparison/fielding-comparison.component';
+import { PitchingComparisonComponent } from './shared/components/visualizations/pitching-comparison/pitching-comparison.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +67,9 @@ import { PortfolioAppsComponent } from './areas/portfolio/portfolio-apps/portfol
     PortfolioHomeComponent,
     PortfolioNpmComponent,
     PortfolioApiComponent,
-    PortfolioAppsComponent
+    PortfolioAppsComponent,
+    FieldingComparisonComponent,
+    PitchingComparisonComponent
   ],
   imports: [
     BrowserModule,

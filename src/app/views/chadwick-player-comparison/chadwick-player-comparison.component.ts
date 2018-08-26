@@ -1,11 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ChadwickService } from '../../shared/services/chadwick.service';
-import { HomerunComparisonComponent } from '../../shared/components/visualizations/homerun-comparison/homerun-comparison.component';
 import { ChadwickPlayerSearchResult } from '../../shared/models/chadwick-player-search-result';
-import { MatAutocompleteSelectedEvent } from '@angular/material';
 import { PlayerDetail } from '../../shared/models/player-detail';
 import { FormControl } from '@angular/forms';
 import { HittingComparisonComponent } from '../../shared/components/visualizations/hitting-comparison/hitting-comparison.component';
+import { FieldingComparisonComponent } from '../../shared/components/visualizations/fielding-comparison/fielding-comparison.component';
+import { PitchingComparisonComponent } from '../../shared/components/visualizations/pitching-comparison/pitching-comparison.component';
 
 @Component({
   selector: 'app-chadwick-player-comparison',
@@ -19,8 +19,10 @@ export class ChadwickPlayerComparisonComponent implements OnInit {
   public player2Detail: PlayerDetail;
   public results: ChadwickPlayerSearchResult[];
   private readonly _chadwickService: ChadwickService;
-  @ViewChild('homerunCompare') homerunCompare: HomerunComparisonComponent;
+  private termChecker: string;
+  @ViewChild('fieldingCompare') fieldingCompare: FieldingComparisonComponent;
   @ViewChild('hittingCompare') hittingCompare: HittingComparisonComponent;
+  @ViewChild('pitchingCompare') pitchingCompare: PitchingComparisonComponent;
   constructor(_chadwickService: ChadwickService) {
     this.player1Ctrl = new FormControl();
     this.player2Ctrl = new FormControl();
@@ -29,20 +31,26 @@ export class ChadwickPlayerComparisonComponent implements OnInit {
 
   ngOnInit() {
     this.player1Ctrl.valueChanges.subscribe( _val => {
-      if (_val && _val.length > 3) {
+      if (_val && _val.length > 5) {
+        this.termChecker = _val;
         this.searchPlayers(_val);
       }
     });
     this.player2Ctrl.valueChanges.subscribe( _val => {
-      if (_val && _val.length > 3) {
+      if (_val && _val.length > 5) {
+        this.termChecker = _val;
         this.searchPlayers(_val);
       }
     });
   }
   async searchPlayers(term: string) {
-    if (term && term.length > 2) {
-      const results = await this._chadwickService.searchPlayers( term );
-      this.results = results;
+    if (term && term.length > 5) {
+      setTimeout( async () => {
+        if (term === this.termChecker) {
+          this.results = await this._chadwickService.searchPlayers( term );
+          this.termChecker = null;
+        }
+      }, 1000);
     } else {
       this.results = null;
     }
@@ -56,8 +64,11 @@ export class ChadwickPlayerComparisonComponent implements OnInit {
       console.log(data);
       this.player1Detail = data[0];
       this.player2Detail = data[1];
-      this.homerunCompare.refresh(this.player1Detail, this.player2Detail);
+      this.fieldingCompare.refresh(this.player1Detail, this.player2Detail);
       this.hittingCompare.refresh(this.player1Detail, this.player2Detail);
+      if (this.pitchingCompare) {
+        this.pitchingCompare.refresh( this.player1Detail, this.player2Detail );
+      }
     }
   }
   displayFn(result) {
