@@ -10,6 +10,10 @@
     grid-area: header;
     background: url('../../../../images/jumbotron-seats.jpg');
     background-size: cover;
+    //position: absolute;
+    //height: 400px;
+    //width: 100%;
+    //left: 0;
   }
   main {
     margin: 0 auto;
@@ -83,7 +87,6 @@
   }
   @include extra-large() {
     main {
-      width: 60%;
       #cards {
         grid-template-columns: repeat(3, 1fr);
       }
@@ -91,7 +94,6 @@
   }
   @include large() {
     main {
-      width: 80%;
       #cards {
         grid-template-columns: repeat(3, 1fr);
       }
@@ -99,7 +101,6 @@
   }
   @include medium() {
     main {
-      width: 90%;
       #cards {
         grid-template-rows: repeat(3, auto);
       }
@@ -107,7 +108,6 @@
   }
   @include small() {
     main {
-      width: 100%;
       #cards {
         grid-template-rows: repeat(3, auto);
         mat-card {

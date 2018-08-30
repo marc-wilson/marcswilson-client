@@ -22,6 +22,18 @@ $marcswilson-theme: mat-light-theme($marcswilson-primary, $marcswilson-accent, $
 $marcswilson-typography: mat-typography-config(
   $font-family: 'sans-serif'
 );
+
+.mat-subheading-2,
+.mat-subheading-1 {
+  margin: 0 !important;
+}
+
+.mat-body-1,
+.mat-body-2,
+.mat-caption {
+  color: #424242;
+}
+
 .mat-display-1 {
   margin-bottom: 15px !important;
   color: #424242;

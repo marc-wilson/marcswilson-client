@@ -1,3 +1,5 @@
+@import '../mq-mixins.scss';
+
 section {
   height: 100%;
   display: grid;
@@ -24,6 +26,32 @@ section {
     }
   }
   main {
+    margin: 0 auto;
   }
   footer {}
+}
+@include extra-large() {
+  main {
+    width: 60%;
+  }
+}
+@include large() {
+  main {
+    width: 80%;
+  }
+}
+@include medium() {
+  main {
+    width: 90%;
+  }
+}
+@include small() {
+  main {
+    width: 95%;
+  }
+}
+@include extra-small() {
+  main {
+    width: 95%;
+  }
 }

@@ -1,6 +1,25 @@
 section {
   grid-template-rows: auto 1fr auto;
   header {}
-  main {}
+  main {
+    .row {
+      .row-header {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        .image-container {
+          margin: 15px;
+          align-self: end;
+          img {
+            height: 60px;
+            width: 60px;
+            align-self: end;
+          }
+        }
+        .details-container {
+          margin: 15px;
+        }
+      }
+    }
+  }
   footer {}
 }
