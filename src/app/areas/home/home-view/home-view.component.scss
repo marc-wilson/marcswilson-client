@@ -10,12 +10,13 @@
     grid-area: header;
     background: url('../../../../images/jumbotron-seats.jpg');
     background-size: cover;
-    //position: absolute;
-    //height: 400px;
-    //width: 100%;
-    //left: 0;
+    position: absolute;
+    height: 300px;
+    width: 100%;
+    left: 0;
   }
   main {
+    width: 100%;
     margin: 0 auto;
     grid-area: main;
     display: grid;
