@@ -25,33 +25,6 @@ section {
       }
     }
   }
-  main {
-    margin: 0 auto;
-  }
+  main {}
   footer {}
-}
-@include extra-large() {
-  main {
-    width: 60%;
-  }
-}
-@include large() {
-  main {
-    width: 80%;
-  }
-}
-@include medium() {
-  main {
-    width: 90%;
-  }
-}
-@include small() {
-  main {
-    width: 95%;
-  }
-}
-@include extra-small() {
-  main {
-    width: 95%;
-  }
 }

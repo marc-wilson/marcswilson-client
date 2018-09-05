@@ -29,7 +29,7 @@
     "@fortawesome/free-brands-svg-icons": "^5.2.0",
     "@fortawesome/free-solid-svg-icons": "^5.2.0",
     "core-js": "^2.5.4",
-    "d3": "^5.5.0",
+    "d3": "^5.7.0",
     "highcharts": "^6.1.1",
     "popmotion-pose": "^2.1.0",
     "rxjs": "^6.2.2",

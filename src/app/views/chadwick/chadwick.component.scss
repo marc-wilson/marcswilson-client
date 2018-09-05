@@ -42,6 +42,9 @@ mat-drawer-container {
       }
     }
   }
+  mat-drawer-content {
+    margin: 30px;
+  }
 }
 
 @keyframes toggleSideNav {

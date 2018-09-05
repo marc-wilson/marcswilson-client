@@ -1,5 +1,6 @@
 <section *ngIf="counts">
   <app-boxscores class="span-4"></app-boxscores>
+  <app-d3-pie-chart></app-d3-pie-chart>
   <app-single-number-viz [num]="counts.people" text="People"></app-single-number-viz>
   <app-single-number-viz [num]="counts.teams" text="Teams"></app-single-number-viz>
   <app-single-number-viz [num]="counts.ballparks" text="Ballparks"></app-single-number-viz>

@@ -2,6 +2,7 @@
   <header>
     <mat-form-field>
       <input type="text" placeholder="Player 1" matInput [formControl]="player1Ctrl" [matAutocomplete]="player1Auto" />
+      <mat-spinner class="spinner" [diameter]="20" matSuffix *ngIf="player1Loading"></mat-spinner>
       <mat-autocomplete #player1Auto [displayWith]="displayFn" (optionSelected)="onPlayerChanged()">
         <mat-option *ngFor="let result of results" [value]="result">
           <div>
@@ -13,6 +14,7 @@
     </mat-form-field>
     <mat-form-field>
       <input type="text" placeholder="Player 2" matInput [formControl]="player2Ctrl" [matAutocomplete]="player2Auto" />
+      <mat-spinner class="spinner" [diameter]="20" matSuffix *ngIf="player2Loading"></mat-spinner>
       <mat-autocomplete #player2Auto [displayWith]="displayFn" (optionSelected)="onPlayerChanged()">
         <mat-option *ngFor="let result of results" [value]="result">
           <div>

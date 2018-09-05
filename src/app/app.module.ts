@@ -11,7 +11,7 @@ import {
   MatCardModule,
   MatDividerModule,
   MatExpansionModule,
-  MatIconModule, MatInputModule, MatSelectModule,
+  MatIconModule, MatInputModule, MatProgressSpinnerModule, MatSelectModule,
   MatSidenavModule,
   MatToolbarModule
 } from '@angular/material';
@@ -42,6 +42,7 @@ import { PortfolioApiComponent } from './areas/portfolio/portfolio-api/portfolio
 import { PortfolioAppsComponent } from './areas/portfolio/portfolio-apps/portfolio-apps.component';
 import { FieldingComparisonComponent } from './shared/components/visualizations/fielding-comparison/fielding-comparison.component';
 import { PitchingComparisonComponent } from './shared/components/visualizations/pitching-comparison/pitching-comparison.component';
+import { D3PieChartComponent } from './shared/components/visualizations/d3-pie-chart/d3-pie-chart.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { PitchingComparisonComponent } from './shared/components/visualizations/
     PortfolioApiComponent,
     PortfolioAppsComponent,
     FieldingComparisonComponent,
-    PitchingComparisonComponent
+    PitchingComparisonComponent,
+    D3PieChartComponent
   ],
   imports: [
     BrowserModule,
@@ -88,6 +90,7 @@ import { PitchingComparisonComponent } from './shared/components/visualizations/
     MatDividerModule,
     MatIconModule,
     MatSidenavModule,
+    MatProgressSpinnerModule,
     MatToolbarModule,
     ReactiveFormsModule
   ],

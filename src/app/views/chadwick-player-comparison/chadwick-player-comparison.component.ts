@@ -17,6 +17,8 @@ export class ChadwickPlayerComparisonComponent implements OnInit {
   public player2Ctrl: FormControl;
   public player1Detail: PlayerDetail;
   public player2Detail: PlayerDetail;
+  public player1Loading: boolean;
+  public player2Loading: boolean;
   public results: ChadwickPlayerSearchResult[];
   private readonly _chadwickService: ChadwickService;
   private termChecker: string;
@@ -30,25 +32,32 @@ export class ChadwickPlayerComparisonComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.player1Ctrl.valueChanges.subscribe( _val => {
+    this.player1Ctrl.valueChanges.subscribe( async _val => {
       if (_val && _val.length > 5) {
         this.termChecker = _val;
-        this.searchPlayers(_val);
+        await this.searchPlayers(_val, 1);
       }
     });
-    this.player2Ctrl.valueChanges.subscribe( _val => {
+    this.player2Ctrl.valueChanges.subscribe( async _val => {
       if (_val && _val.length > 5) {
         this.termChecker = _val;
-        this.searchPlayers(_val);
+        await this.searchPlayers(_val, 2);
       }
     });
   }
-  async searchPlayers(term: string) {
+  async searchPlayers(term: string, player: number) {
     if (term && term.length > 5) {
+      if (player === 1) {
+        this.player1Loading = true;
+      } else if (player === 2) {
+        this.player2Loading = true;
+      }
       setTimeout( async () => {
         if (term === this.termChecker) {
           this.results = await this._chadwickService.searchPlayers( term );
           this.termChecker = null;
+          this.player1Loading = false;
+          this.player2Loading = false;
         }
       }, 1000);
     } else {
